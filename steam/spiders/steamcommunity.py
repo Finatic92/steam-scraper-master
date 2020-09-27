@@ -5,7 +5,7 @@ import scrapy
 group = 'KeyVendorNet'
 
 class SteamCommunity(scrapy.Spider):
-    name = 'Steam Community'
+    name = 'SteamCommunity'
 
     base_url = 'http://steamcommunity.com/app/227680/eventcomments/1631915072539961227'
     #base_url += '?p={}'
