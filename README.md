@@ -28,5 +28,25 @@ By the way, on macOS you can install Python 3.6 via [homebrew](https://brew.sh):
 ```
 On Ubuntu you can use [instructions posted on askubuntu.com](https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get).
 
-## Crawling the News
-## this file will be continuosly updated with every new push
+
+Using the Steam Crawler:
+```
+to crawl the site and use the spider crawler use command: scrapy crawl sc 
+in terminal in this path.
+```
+The Config.cfg file has the names of each game that can be crawled along with the steam ID for that game. 
+New games can be added.
+
+DataProcessing.py file is run to generate the .csv files that would contain the crawled data for certain keywords.
+The Keyword list can be enhanced to add more keywords in the DataProcessing.py file. 
+Just add more comma-seperated keywords in the list.
+
+```
+Run the main fuinction of this class once all game sites have been crawled. 
+```
+
+Flow of control:
+```
+1. First run the command : scrapy crawl sc : to crawl through each of the games. Once .html file is generated for each game,
+2. run the main method of file DataProcessing.py.
+```
