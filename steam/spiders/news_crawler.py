@@ -1,10 +1,13 @@
 
 import scrapy
 import configparser
+import os, fnmatch
 import re
 
 config = configparser.RawConfigParser()
-config.read('/Users/pranaykhattri/Downloads/NLP_RA/steam-scraper-master/scrapy.cfg')
+path = os.path.abspath(os.getcwd())
+config.read('/'.join((path.split('/')[:-2]))+'/scrapy.cfg')
+html_file_path = '/'.join((path.split('/')[:-2]))
 
 class QuotesSpider(scrapy.Spider):
     name = "sc"
@@ -39,7 +42,7 @@ class QuotesSpider(scrapy.Spider):
             print("failed with 403", response.url)
             self.failed_urls.append(response.url)
 
-        filename = 'sc_'+self.games_dict[response.request.url.split('/')[4]]+'.html'
+        filename = html_file_path + '/sc_'+self.games_dict[response.request.url.split('/')[4]]+'.html'
         base_url = 'https://steamcommunity.com/app/'+ response.request.url.split('/')[4]
         self.lst.append(response.body.__str__()+"****break****")
 
